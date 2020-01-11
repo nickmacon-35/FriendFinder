@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Reservation Page</title>
+  <title>Survey Page</title>
 
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -50,8 +50,6 @@
       </div>
     </div>
 
-    <br><br>
-
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
@@ -62,11 +60,11 @@
             <form role="form">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="reserve-name">
+                <input type="text" class="form-control" id="name">
               </div>
               <div class="form-group">
                 <label for="photo">Photo</label>
-                <input type="text" class="form-control" id="reserve-phone">
+                <input type="text" class="form-control" id="phone">
               </div>
               <div class="form-group">
               <!-- Questions -->
@@ -139,37 +137,6 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 
-function runFriendQuery() {
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/survey", method: "GET" })
-      .then(function(friends) {
-
-        // Here we then log the tableData to console, where it will show up as an object.
-        console.log(friends);
-        console.log("------------------------------------");
-
-        // Loop through and display each of the customers
-        for (var i = 0; i < friends.length; i++) {
-
-          // Get a reference to the tableList element and populate it with tables
-          var friendList = $("#friendList");
-
-          // Then display the fields in the HTML (Section Name, Date, URL)
-          var listItem = $("<li class='list-group-item mt-4'>");
-
-          listItem.append(
-            $("<h2>").text("Friend #" + (i + 1)),
-            $("<hr>"),
-            $("<h2>").text("Name: " + friends[i].name),
-            $("<h2>").text("Photo: " + friends[i].photo),
-            $("<h2>").text("Score: " + friends[i].scores)
-          );
-
-          friends.append(listItem);
-        }
-      });
-  }
-
   $(".submit").on("click", function(event) {
     event.preventDefault();
 
@@ -205,8 +172,6 @@ function runFriendQuery() {
       });
 
   });
-
-  runFriendQuery();
 
 </script>
 
