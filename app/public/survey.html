@@ -38,20 +38,6 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <!-- Current Tables in Use -->
-        <div class="card">
-          <div class="card-header">
-            <h4>Current Friends</h4>
-          </div>
-          <div class="card-body">
-            <ul id="friendList" class="list-group"></ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
             Fill out the below survey:
@@ -68,53 +54,53 @@
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 1 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question1">Question 1 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question1">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 2 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question2">Question 2 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question2">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 3 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question3">Question 3 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question3">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 4 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question4">Question 4 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question4">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 5 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question5">Question 5 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question5">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 6 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question6">Question 6 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question6">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 7 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question7">Question 7 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question7">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 8 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question8">Question 8 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question8">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 9 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question9">Question 9 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question9">
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="question">Question 10 (scale of 1-5)</label>
-                <input type="text" class="form-control" id="question">
+                <label for="question10">Question 10 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question10">
               </div>
               <button type="submit" class="btn btn-primary submit">Submit</button>
             </form>
@@ -145,8 +131,18 @@
       name: $("#name").val().trim(),
       photo: $("#photo").val().trim(),
       // Questions
-      scores: $("#question").val().trim()
+      scores: [$("#question1").val().trim(),
+      $("#question2").val().trim(),
+      $("#question3").val().trim(),
+      $("#question4").val().trim(),
+      $("#question5").val().trim(),
+      $("#question6").val().trim(),
+      $("#question8").val().trim(),
+      $("#question9").val().trim(),
+      $("#question10").val().trim()]
     };
+
+for (i=0; newFriend.scores.length; i++)
 
     console.log(newFriend);
 
