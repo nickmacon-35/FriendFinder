@@ -35,6 +35,20 @@
         </a>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Current Tables in Use -->
+        <div class="card">
+          <div class="card-header">
+            <h4>Current Friends</h4>
+          </div>
+          <div class="card-body">
+            <ul id="friendList" class="list-group"></ul>
+          </div>
+        </div>
+
     <div class="row">
       <div class="col-lg-12">
         <!-- Reservation Page -->
@@ -109,7 +123,6 @@
       </div>
     </div>
 
-
     <footer class="footer">
       <div class="container">
         <p>
@@ -125,10 +138,37 @@
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
-  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-  // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+function runFriendQuery() {
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $.ajax({ url: "/api/survey", method: "GET" })
+      .then(function(friends) {
+
+        // Here we then log the tableData to console, where it will show up as an object.
+        console.log(friends);
+        console.log("------------------------------------");
+
+        // Loop through and display each of the customers
+        for (var i = 0; i < friends.length; i++) {
+
+          // Get a reference to the tableList element and populate it with tables
+          var friendList = $("#friendList");
+
+          // Then display the fields in the HTML (Section Name, Date, URL)
+          var listItem = $("<li class='list-group-item mt-4'>");
+
+          listItem.append(
+            $("<h2>").text("Friend #" + (i + 1)),
+            $("<hr>"),
+            $("<h2>").text("Name: " + friends[i].name),
+            $("<h2>").text("Photo: " + friends[i].photo),
+            $("<h2>").text("Score: " + friends[i].scores)
+          );
+
+          friends.append(listItem);
+        }
+      });
+  }
 
   $(".submit").on("click", function(event) {
     event.preventDefault();
@@ -138,7 +178,7 @@
       name: $("#name").val().trim(),
       photo: $("#photo").val().trim(),
       // Questions
-      scores: $("#question").val().trim(),
+      scores: $("#question").val().trim()
     };
 
     console.log(newFriend);
