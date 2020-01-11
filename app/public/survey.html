@@ -19,15 +19,15 @@
 
     <div class="jumbotron">
       <h1 class="text-center">
-        <span class="fa fa-fire"></span>Friend Finder</h1>
+        <span class="fa fa-fire"></span> Friend Finder</h1>
       <hr>
       <h2 class="text-center">Find your new friend here!</h2>
       <br>
       <div class="text-center">
-        <a href="/survey">
+        <!-- <a href="/survey">
           <button class="btn btn-lg btn-primary">
             <span class="fa fa-list-alt"></span>Take a survey!</button>
-        </a>
+        </a> -->
         <a href="/">
           <button class="btn btn-lg btn-default">
             <span class="fa fa-home"></span>
@@ -40,7 +40,7 @@
         <!-- Reservation Page -->
         <div class="card">
           <div class="card-header">
-            Table Reservation
+            Fill out the below survey:
           </div>
           <div class="card-body">
             <form role="form">
@@ -54,12 +54,53 @@
               </div>
               <div class="form-group">
               <!-- Questions -->
-                <label for="reserve-email">Email</label>
-                <input type="text" class="form-control" id="reserve-email">
+                <label for="question">Question 1 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
               </div>
               <div class="form-group">
-                <label for="reserve-unique-id">Unique ID</label>
-                <input type="text" class="form-control" id="reserve-unique-id">
+              <!-- Questions -->
+                <label for="question">Question 2 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 3 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 4 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 5 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 6 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 7 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 8 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 9 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
+              </div>
+              <div class="form-group">
+              <!-- Questions -->
+                <label for="question">Question 10 (scale of 1-5)</label>
+                <input type="text" class="form-control" id="question">
               </div>
               <button type="submit" class="btn btn-primary submit">Submit</button>
             </form>
@@ -97,8 +138,7 @@
       name: $("#name").val().trim(),
       photo: $("#photo").val().trim(),
       // Questions
-      customerEmail: $("#reserve-email").val().trim(),
-      customerID: $("#reserve-unique-id").val().trim()
+      scores: $("#question").val().trim(),
     };
 
     console.log(newFriend);
@@ -120,8 +160,7 @@
         $("#name").val("");
         $("#photo").val("");
         // Questions
-        $("#reserve-email").val("");
-        $("#reserve-unique-id").val("");
+        $("#question").val("");
 
       });
 
