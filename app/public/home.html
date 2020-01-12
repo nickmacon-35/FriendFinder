@@ -43,7 +43,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/survey">Friend Survey</a>
+        <p><a href="/api/friend">Friend Survey</a>
       </div>
     </footer>
 
@@ -54,7 +54,7 @@
 <script type="text/javascript">
   function runFriendQuery() {
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/survey", method: "GET" })
+    $.ajax({ url: "/api/friend", method: "GET" })
       .then(function(friends) {
 
         // Here we then log the tableData to console, where it will show up as an object.
@@ -74,11 +74,11 @@
             $("<h2>").text("Friend #" + (i + 1)),
             $("<hr>"),
             $("<h2>").text("Name: " + friends[i].name),
-            $("<h2>").text("Photo: " + friends[i].photo),
+            $("<h2>").attr("src", friends[i].photo),
             $("<h2>").text("Score: " + friends[i].scores)
           );
 
-          friends.append(listItem);
+          friendList.append(listItem);
         }
       });
   }

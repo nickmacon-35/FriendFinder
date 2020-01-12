@@ -50,7 +50,7 @@
               </div>
               <div class="form-group">
                 <label for="photo">Photo</label>
-                <input type="text" class="form-control" id="phone">
+                <input type="text" class="form-control" id="photo">
               </div>
               <div class="form-group">
               <!-- Questions -->
@@ -142,8 +142,6 @@
       $("#question10").val().trim()]
     };
 
-for (i=0; newFriend.scores.length; i++)
-
     console.log(newFriend);
 
     // This line is the magic. It"s very similar to the standard ajax function we used.
@@ -151,9 +149,10 @@ for (i=0; newFriend.scores.length; i++)
     // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
     // depending on if a tables is available or not.
 
-    $.post("/api/survey", newFriend,
+    $.post("/api/friend", newFriend,
       function(data) {
 
+        console.log(data);
         // If a table is available... tell user they are booked.
         if (data) {
           alert("Yay! You are a possible friend!");
@@ -163,7 +162,15 @@ for (i=0; newFriend.scores.length; i++)
         $("#name").val("");
         $("#photo").val("");
         // Questions
-        $("#question").val("");
+        $("#question1").val("");
+        $("#question2").val("");
+        $("#question3").val("");
+        $("#question4").val("");
+        $("#question5").val("");
+        $("#question6").val("");
+        $("#question8").val("");
+        $("#question9").val("");
+        $("#question10").val("");
 
       });
 
